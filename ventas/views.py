@@ -2,6 +2,8 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView
 from django.db import transaction
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from .models import Venta
 
 
@@ -10,6 +12,7 @@ class VentaListView(ListView):
     template_name = "ventas/venta_list.html"
 
 
+@method_decorator(login_required, name="dispatch")
 class VentaCreateView(CreateView):
     model = Venta
     fields = ["producto", "cantidad"]

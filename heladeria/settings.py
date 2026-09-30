@@ -134,3 +134,4 @@ AUTH_USER_MODEL = "usuarios.Usuario"
 
 LOGIN_REDIRECT_URL = "/productos/"
 LOGOUT_REDIRECT_URL = "/login/"
+LOGIN_URL = "/login/"
