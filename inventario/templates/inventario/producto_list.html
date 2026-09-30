@@ -1,0 +1,7 @@
+<h1>Productos</h1>
+
+<ul>
+  {% for producto in object_list %}
+  <li>{{ producto.nombre }} — ${{ producto.precio_publico }}</li>
+  {% endfor %}
+</ul>
