@@ -1,0 +1,13 @@
+<h1>Ingredientes</h1>
+<a href="{% url 'ingrediente_create' %}">+ Nuevo ingrediente</a>
+<ul>
+  {% for ingrediente in object_list %}
+  <li>
+    <a href="{% url 'ingrediente_detail' ingrediente.pk %}"
+      >{{ ingrediente.nombre }}</a
+    >
+    — <a href="{% url 'ingrediente_update' ingrediente.pk %}">Editar</a> —
+    <a href="{% url 'ingrediente_delete' ingrediente.pk %}">Eliminar</a>
+  </li>
+  {% endfor %}
+</ul>

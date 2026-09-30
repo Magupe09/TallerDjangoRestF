@@ -1,0 +1,7 @@
+<h1>Ventas</h1>
+<a href="{% url 'venta_create' %}">+ Nueva venta</a>
+<ul>
+  {% for venta in object_list %}
+    <li>{{ venta.producto.nombre }} x{{ venta.cantidad }} — ${{ venta.total }} — {{ venta.fecha }}</li>
+  {% endfor %}
+</ul>

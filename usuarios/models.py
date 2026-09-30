@@ -15,3 +15,6 @@ class Usuario(AbstractUser):
         choices=Rol.choices,
         default=Rol.CLIENTE,
     )
+
+    def __str__(self):
+        return self.username

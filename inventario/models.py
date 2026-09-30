@@ -17,6 +17,9 @@ class Ingrediente(models.Model):
     tipo = models.CharField(max_length=20, choices=Tipo.choices)
     sabor = models.CharField(max_length=100, blank=True)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Producto(models.Model):
     class Tipo(models.TextChoices):
@@ -42,7 +45,13 @@ class Producto(models.Model):
     def rentabilidad(self):
         return self.precio_publico - self.costo
 
+    def __str__(self):
+        return self.nombre
+
 
 class ProductoIngrediente(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     ingrediente = models.ForeignKey(Ingrediente, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.producto.nombre} → {self.ingrediente.nombre}"
